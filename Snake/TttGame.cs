@@ -8,35 +8,35 @@ namespace Snake
 {
     class TttGame
     {
-        bool wygral = false;
-        bool wcisniety = true;
+        bool win = false;
+        bool pressed = true;
         int licznik = 1;
-        int zliczanieWygranych = 0;
-        int zliczanieWygranych2 = 0;
+        int WinCounting = 0;
+        int WinCounting2 = 0;
         public void NewGame()
         {
             Console.Clear();
-           
+
             Colors.RedLetters();
             Person.EnterName(ref Person.NamePersonOne);
             Console.Clear();
-           
+
             Person.EnterName(ref Person.NamePersonTwo);
             Console.Clear();
             ConsoleColor gray = ConsoleColor.Gray;
             Console.ForegroundColor = gray;
             Area.DrawBoard();
-          
-            Person.CalculatePositions(Person.NamePersonOne,Area.minColumn + 14, Area.minRow + 7);
+
+            Person.CalculatePositions(Person.NamePersonOne, Area.minColumn + 14, Area.minRow + 7);
             Colors.RedLetters();
             Person.WriteName(Person.NamePersonOne);
-            CountWin(zliczanieWygranych,14);
+            CountWin(WinCounting, 14);
 
-            Person.CalculatePositions(Person.NamePersonTwo,Area.minColumn + 85, Area.minRow + 7);
+            Person.CalculatePositions(Person.NamePersonTwo, Area.minColumn + 85, Area.minRow + 7);
             Colors.GreenLetters();
             Person.WriteName(Person.NamePersonTwo);
-            CountWin(zliczanieWygranych2, 85);
-            
+            CountWin(WinCounting, 85);
+
             PlayGame();
         }
         public void PlayGame()
@@ -45,118 +45,118 @@ namespace Snake
             while (true)
             {
                 ConsoleKeyInfo znak = Console.ReadKey();
-                if (wcisniety)
+                if (pressed)
                 {
                     switch (znak.Key)
                     {
                         case ConsoleKey.D1:
-                            if (Area.tablica[0, 0] == 'X' || Area.tablica[0, 0] == 'O')
+                            if (Area.table[0, 0] == 'X' || Area.table[0, 0] == 'O')
                             {
-                                wcisniety = true;
+                                pressed = true;
 
                             }
-                            else if (Area.tablica[0, 0] == '1')
+                            else if (Area.table[0, 0] == '1')
                             {
-                             
-                                Area.tablica[0, 0] = 'X';
-                                wcisniety = false;
+
+                                Area.table[0, 0] = 'X';
+                                pressed = false;
                                 licznik++;
 
                             }
                             break;
                         case ConsoleKey.D2:
-                            if (Area.tablica[0, 1] == 'X' || Area.tablica[0, 1] == 'O')
+                            if (Area.table[0, 1] == 'X' || Area.table[0, 1] == 'O')
                             {
-                                wcisniety = true;
+                                pressed = true;
                             }
-                            else if (Area.tablica[0, 1] == '2')
+                            else if (Area.table[0, 1] == '2')
                             {
-                                Area.tablica[0, 1] = 'X';
-                                wcisniety = false;
+                                Area.table[0, 1] = 'X';
+                                pressed = false;
                                 licznik++;
                             }
                             break;
                         case ConsoleKey.D3:
-                            if (Area.tablica[0, 2] == 'X' || Area.tablica[0, 2] == 'O')
+                            if (Area.table[0, 2] == 'X' || Area.table[0, 2] == 'O')
                             {
-                                wcisniety = true;
+                                pressed = true;
                             }
-                            else if (Area.tablica[0, 2] == '3')
+                            else if (Area.table[0, 2] == '3')
                             {
-                                Area.tablica[0, 2] = 'X';
-                                wcisniety = false;
+                                Area.table[0, 2] = 'X';
+                                pressed = false;
                                 licznik++;
                             }
                             break;
                         case ConsoleKey.D4:
-                            if (Area.tablica[1, 0] == 'X' || Area.tablica[1, 0] == 'O')
+                            if (Area.table[1, 0] == 'X' || Area.table[1, 0] == 'O')
                             {
-                                wcisniety = true;
+                                pressed = true;
                             }
-                            else if (Area.tablica[1, 0] == '4')
+                            else if (Area.table[1, 0] == '4')
                             {
-                                Area.tablica[1, 0] = 'X';
-                                wcisniety = false;
+                                Area.table[1, 0] = 'X';
+                                pressed = false;
                                 licznik++;
                             }
                             break;
                         case ConsoleKey.D5:
-                            if (Area.tablica[1, 1] == 'X' || Area.tablica[1, 1] == 'O')
+                            if (Area.table[1, 1] == 'X' || Area.table[1, 1] == 'O')
                             {
-                                wcisniety = true;
+                                pressed = true;
                             }
-                            else if (Area.tablica[1, 1] == '5')
+                            else if (Area.table[1, 1] == '5')
                             {
-                                Area.tablica[1, 1] = 'X';
-                                wcisniety = false;
+                                Area.table[1, 1] = 'X';
+                                pressed = false;
                                 licznik++;
                             }
                             break;
                         case ConsoleKey.D6:
-                            if (Area.tablica[1, 2] == 'X' || Area.tablica[1, 2] == 'O')
+                            if (Area.table[1, 2] == 'X' || Area.table[1, 2] == 'O')
                             {
-                                wcisniety = true;
+                                pressed = true;
                             }
-                            else if (Area.tablica[1, 2] == '6')
+                            else if (Area.table[1, 2] == '6')
                             {
-                                Area.tablica[1, 2] = 'X';
-                                wcisniety = false;
+                                Area.table[1, 2] = 'X';
+                                pressed = false;
                                 licznik++;
                             }
                             break;
                         case ConsoleKey.D7:
-                            if (Area.tablica[2, 0] == 'X' || Area.tablica[2, 0] == 'O')
+                            if (Area.table[2, 0] == 'X' || Area.table[2, 0] == 'O')
                             {
-                                wcisniety = true;
+                                pressed = true;
                             }
-                            else if (Area.tablica[2, 0] == '7')
+                            else if (Area.table[2, 0] == '7')
                             {
-                                Area.tablica[2, 0] = 'X';
-                                wcisniety = false;
+                                Area.table[2, 0] = 'X';
+                                pressed = false;
                                 licznik++;
                             }
                             break;
                         case ConsoleKey.D8:
-                            if (Area.tablica[2, 1] == 'X' || Area.tablica[2, 1] == 'O')
+                            if (Area.table[2, 1] == 'X' || Area.table[2, 1] == 'O')
                             {
-                                wcisniety = true;
+                                pressed = true;
                             }
-                            else if (Area.tablica[2, 1] == '8')
+                            else if (Area.table[2, 1] == '8')
                             {
-                                Area.tablica[2, 1] = 'X';
-                                wcisniety = false;
+                                Area.table[2, 1] = 'X';
+                                pressed = false;
                                 licznik++;
                             }
                             break;
                         case ConsoleKey.D9:
-                            if (Area.tablica[2, 2] == 'X' || Area.tablica[2, 2] == 'O')
+                            if (Area.table[2, 2] == 'X' || Area.table[2, 2] == 'O')
                             {
-                                wcisniety = true;
+                                pressed = true;
                             }
-                            else if (Area.tablica[2, 2] == '9')
+                            else if (Area.table[2, 2] == '9')
                             {
-                                Area.tablica[2, 2] = 'X';
-                                wcisniety = false;
+                                Area.table[2, 2] = 'X';
+                                pressed = false;
                                 licznik++;
                             }
                             break;
@@ -170,111 +170,111 @@ namespace Snake
                     switch (znak.Key)
                     {
                         case ConsoleKey.D1:
-                            if (Area.tablica[0, 0] == 'X' || Area.tablica[0, 0] == 'O')
+                            if (Area.table[0, 0] == 'X' || Area.table[0, 0] == 'O')
                             {
-                                wcisniety = false;
+                                pressed = false;
 
                             }
-                            else if (Area.tablica[0, 0] == '1')
+                            else if (Area.table[0, 0] == '1')
                             {
-                                Area.tablica[0, 0] = 'O';
-                                wcisniety = true;
+                                Area.table[0, 0] = 'O';
+                                pressed = true;
                                 licznik++;
                             }
                             break;
                         case ConsoleKey.D2:
-                            if (Area.tablica[0, 1] == 'X' || Area.tablica[0, 1] == 'O')
+                            if (Area.table[0, 1] == 'X' || Area.table[0, 1] == 'O')
                             {
-                                wcisniety = false;
+                                pressed = false;
                             }
-                            else if (Area.tablica[0, 1] == '2')
+                            else if (Area.table[0, 1] == '2')
                             {
-                                Area.tablica[0, 1] = 'O';
-                                wcisniety = true;
+                                Area.table[0, 1] = 'O';
+                                pressed = true;
                                 licznik++;
                             }
                             break;
                         case ConsoleKey.D3:
-                            if (Area.tablica[0, 2] == 'X' || Area.tablica[0, 2] == 'O')
+                            if (Area.table[0, 2] == 'X' || Area.table[0, 2] == 'O')
                             {
-                                wcisniety = false;
+                                pressed = false;
                             }
-                            else if (Area.tablica[0, 2] == '3')
+                            else if (Area.table[0, 2] == '3')
                             {
-                                Area.tablica[0, 2] = 'O';
-                                wcisniety = true;
+                                Area.table[0, 2] = 'O';
+                                pressed = true;
                                 licznik++;
                             }
                             break;
                         case ConsoleKey.D4:
-                            if (Area.tablica[1, 0] == 'X' || Area.tablica[1, 0] == 'O')
+                            if (Area.table[1, 0] == 'X' || Area.table[1, 0] == 'O')
                             {
-                                wcisniety = false;
+                                pressed = false;
                             }
-                            else if (Area.tablica[1, 0] == '4')
+                            else if (Area.table[1, 0] == '4')
                             {
-                                Area.tablica[1, 0] = 'O';
-                                wcisniety = true;
+                                Area.table[1, 0] = 'O';
+                                pressed = true;
                                 licznik++;
                             }
                             break;
                         case ConsoleKey.D5:
-                            if (Area.tablica[1, 1] == 'X' || Area.tablica[1, 1] == 'O')
+                            if (Area.table[1, 1] == 'X' || Area.table[1, 1] == 'O')
                             {
-                                wcisniety = false;
+                                pressed = false;
                             }
-                            else if (Area.tablica[1, 1] == '5')
+                            else if (Area.table[1, 1] == '5')
                             {
-                                Area.tablica[1, 1] = 'O';
-                                wcisniety = true;
+                                Area.table[1, 1] = 'O';
+                                pressed = true;
                                 licznik++;
                             }
                             break;
                         case ConsoleKey.D6:
-                            if (Area.tablica[1, 2] == 'X' || Area.tablica[1, 2] == 'O')
+                            if (Area.table[1, 2] == 'X' || Area.table[1, 2] == 'O')
                             {
-                                wcisniety = false;
+                                pressed = false;
                             }
-                            else if (Area.tablica[1, 2] == '6')
+                            else if (Area.table[1, 2] == '6')
                             {
-                                Area.tablica[1, 2] = 'O';
-                                wcisniety = true;
+                                Area.table[1, 2] = 'O';
+                                pressed = true;
                                 licznik++;
                             }
                             break;
                         case ConsoleKey.D7:
-                            if (Area.tablica[2, 0] == 'X' || Area.tablica[2, 0] == 'O')
+                            if (Area.table[2, 0] == 'X' || Area.table[2, 0] == 'O')
                             {
-                                wcisniety = false;
+                                pressed = false;
                             }
-                            else if (Area.tablica[2, 0] == '7')
+                            else if (Area.table[2, 0] == '7')
                             {
-                                Area.tablica[2, 0] = 'O';
-                                wcisniety = true;
+                                Area.table[2, 0] = 'O';
+                                pressed = true;
                                 licznik++;
                             }
                             break;
                         case ConsoleKey.D8:
-                            if (Area.tablica[2, 1] == 'X' || Area.tablica[2, 1] == 'O')
+                            if (Area.table[2, 1] == 'X' || Area.table[2, 1] == 'O')
                             {
-                                wcisniety = false;
+                                pressed = false;
                             }
-                            else if (Area.tablica[2, 1] == '8')
+                            else if (Area.table[2, 1] == '8')
                             {
-                                Area.tablica[2, 1] = 'O';
-                                wcisniety = true;
+                                Area.table[2, 1] = 'O';
+                                pressed = true;
                                 licznik++;
                             }
                             break;
                         case ConsoleKey.D9:
-                            if (Area.tablica[2, 2] == 'X' || Area.tablica[2, 2] == 'O')
+                            if (Area.table[2, 2] == 'X' || Area.table[2, 2] == 'O')
                             {
-                                wcisniety = false;
+                                pressed = false;
                             }
-                            else if (Area.tablica[2, 2] == '9')
+                            else if (Area.table[2, 2] == '9')
                             {
-                                Area.tablica[2, 2] = 'O';
-                                wcisniety = true;
+                                Area.table[2, 2] = 'O';
+                                pressed = true;
                                 licznik++;
                             }
                             break;
@@ -285,75 +285,73 @@ namespace Snake
                 }
                 Console.Clear();
                 Person.MovePlayer(licznik);
-                Person.CalculatePositions(Person.NamePersonOne,Area.minColumn + 14, Area.minRow + 7);
+                Person.CalculatePositions(Person.NamePersonOne, Area.minColumn + 14, Area.minRow + 7);
                 Colors.RedLetters();
                 Person.WriteName(Person.NamePersonOne);
-                CountWin(zliczanieWygranych, 14);
-                Person.CalculatePositions(Person.NamePersonTwo,Area.minColumn + 85, Area.minRow + 7);
-                
+                CountWin(WinCounting, 14);
+                Person.CalculatePositions(Person.NamePersonTwo, Area.minColumn + 85, Area.minRow + 7);
+
                 Colors.GreenLetters();
                 Person.WriteName(Person.NamePersonTwo);
-                CountWin(zliczanieWygranych2, 85);
+                CountWin(WinCounting, 85);
                 Area.DrawBoard();
                 Win();
             }
         }
+
         public void Win()
         {
             //sprawdzenie w poziomie
-            if ((Area.tablica[0, 0] == Area.tablica[0, 1]) && (Area.tablica[0, 1] == Area.tablica[0, 2])) wygral = true;
-            if ((Area.tablica[1, 0] == Area.tablica[1, 1]) && (Area.tablica[1, 1] == Area.tablica[1, 2])) wygral = true;
-            if ((Area.tablica[2, 0] == Area.tablica[2, 1]) && (Area.tablica[2, 1] == Area.tablica[2, 2])) wygral = true;
+            if ((Area.table[0, 0] == Area.table[0, 1]) && (Area.table[0, 1] == Area.table[0, 2])) win = true;
+            if ((Area.table[1, 0] == Area.table[1, 1]) && (Area.table[1, 1] == Area.table[1, 2])) win = true;
+            if ((Area.table[2, 0] == Area.table[2, 1]) && (Area.table[2, 1] == Area.table[2, 2])) win = true;
             //sprawdzenie w pionie
-            if ((Area.tablica[0, 0] == Area.tablica[1, 0]) && (Area.tablica[1, 0] == Area.tablica[2, 0])) wygral = true;
-            if ((Area.tablica[0, 1] == Area.tablica[1, 1]) && (Area.tablica[1, 1] == Area.tablica[2, 1])) wygral = true;
-            if ((Area.tablica[0, 2] == Area.tablica[1, 2]) && (Area.tablica[1, 2] == Area.tablica[2, 2])) wygral = true;
+            if ((Area.table[0, 0] == Area.table[1, 0]) && (Area.table[1, 0] == Area.table[2, 0])) win = true;
+            if ((Area.table[0, 1] == Area.table[1, 1]) && (Area.table[1, 1] == Area.table[2, 1])) win = true;
+            if ((Area.table[0, 2] == Area.table[1, 2]) && (Area.table[1, 2] == Area.table[2, 2])) win = true;
             //sprawdzenie po skosie
-            if ((Area.tablica[0, 0] == Area.tablica[1, 1]) && (Area.tablica[1, 1] == Area.tablica[2, 2])) wygral = true;
-            if ((Area.tablica[0, 2] == Area.tablica[1, 1]) && (Area.tablica[1, 1] == Area.tablica[2, 0])) wygral = true;
+            if ((Area.table[0, 0] == Area.table[1, 1]) && (Area.table[1, 1] == Area.table[2, 2])) win = true;
+            if ((Area.table[0, 2] == Area.table[1, 1]) && (Area.table[1, 1] == Area.table[2, 0])) win = true;
 
-
-            if (wygral)
+            if (win)
             {
                 Colors.GrayLetters();
                 Person.CalculatePositions("Wygrywa !!!", 30);
                 Console.WriteLine("Wygrywa !!!");
 
-
-                if (!wcisniety)
+                if (!pressed)
                 {
-                    zliczanieWygranych++;
+                    WinCounting++;
                     Person.CalculatePositions(">>> " + Person.NamePersonOne + " <<<", 32);
                     Colors.RedLetters();
                     Console.WriteLine(">>> " + Person.NamePersonOne + " <<<");
-                    CountWin(zliczanieWygranych, 14);
-                    CountWin(zliczanieWygranych2, 85);
+                    CountWin(WinCounting, 14);
+                    CountWin(WinCounting, 85);
 
                 }
                 else
                 {
-                    zliczanieWygranych2++;
+                    WinCounting++;
                     Person.CalculatePositions(">>> " + Person.NamePersonTwo + " <<<", 32);
                     Colors.GreenLetters();
                     Console.WriteLine(">>> " + Person.NamePersonTwo + " <<<");
-                    CountWin(zliczanieWygranych, 14);
-                    CountWin(zliczanieWygranych2, 85);
+                    CountWin(WinCounting, 14);
+                    CountWin(WinCounting, 85);
                 }
-
-                WyswietlenieKoncowegoMenu();
+                FinalMenu();
             }
-            else if (Area.tablica[0, 0] != '1' && Area.tablica[0, 1] != '2' && Area.tablica[0, 2] != '3' && Area.tablica[1, 0] != '4' && Area.tablica[1, 1] != '5' && Area.tablica[1, 2] != '6'
-               && Area.tablica[2, 0] != '7' && Area.tablica[2, 1] != '8' && Area.tablica[2, 2] != '9' && !wygral)
+            else if (Area.table[0, 0] != '1' && Area.table[0, 1] != '2' && Area.table[0, 2] != '3' && Area.table[1, 0] != '4' && Area.table[1, 1] != '5' && Area.table[1, 2] != '6'
+               && Area.table[2, 0] != '7' && Area.table[2, 1] != '8' && Area.table[2, 2] != '9' && !win)
             {
                 Colors.GrayLetters();
                 Person.CalculatePositions("Remis", 30);
 
                 Console.WriteLine("Remis");
-                WyswietlenieKoncowegoMenu();
+                FinalMenu();
             }
-
         }
-        public void WyswietlenieKoncowegoMenu()
+
+        public void FinalMenu()
         {
             Console.ForegroundColor = ConsoleColor.DarkGray;
 
@@ -369,7 +367,8 @@ namespace Snake
 
             if (znak.Key != ConsoleKey.D1 && znak.Key != ConsoleKey.D2 && znak.Key != ConsoleKey.Escape && znak.Key != ConsoleKey.D3)
             {
-                WyswietlenieKoncowegoMenu();
+
+                FinalMenu();
             }
             else
             {
@@ -377,43 +376,43 @@ namespace Snake
                 {
                     case ConsoleKey.D1:
                         Console.Clear();
-                        Area.tablica = new char[,]
+                        Area.table = new char[,]
                         {
                             {'1','2','3'},
                             {'4','5','6'},
                             {'7','8','9'},
                         };
-                        wygral = false;
-                        wcisniety = true;
-                        Person.publicznylicznik = 0;
+                        win = false;
+                        pressed = true;
+                        Person.publicCounter = 0;
                         licznik = 1;
                         Person.MovePlayer(licznik);
-                        zliczanieWygranych = 0;
-                        zliczanieWygranych2 = 0;
+                        WinCounting = 0;
+                        WinCounting = 0;
                         NewGame();
-                       
+
                         break;
 
                     case ConsoleKey.D2:
                         Colors.GrayLetters();
                         Console.Clear();
-                        Area.tablica = new char[,]
+                        Area.table = new char[,]
                          {
                             {'1','2','3'},
                             {'4','5','6'},
                             {'7','8','9'},
                          };
-                        wygral = false;
-                        Person.publicznylicznik = 0;
+                        win = false;
+                        Person.publicCounter = 0;
                         Area.DrawBoard();
-                        Person.CalculatePositions(Person.NamePersonOne,Area.minColumn + 14, Area.minRow + 7);
+                        Person.CalculatePositions(Person.NamePersonOne, Area.minColumn + 14, Area.minRow + 7);
                         Colors.RedLetters();
                         Person.WriteName(Person.NamePersonOne);
-                        Person.CalculatePositions(Person.NamePersonTwo,Area.minColumn + 85, Area.minRow + 7);
+                        Person.CalculatePositions(Person.NamePersonTwo, Area.minColumn + 85, Area.minRow + 7);
                         Colors.GreenLetters();
                         Person.WriteName(Person.NamePersonTwo);
-                        CountWin(zliczanieWygranych, 14);
-                        CountWin(zliczanieWygranych2, 85);
+                        CountWin(WinCounting, 14);
+                        CountWin(WinCounting, 85);
                         PlayGame();
                         break;
                     case ConsoleKey.D3:
@@ -423,10 +422,11 @@ namespace Snake
                 }
             }
         }
-        public void CountWin(int win,int x)
+
+        public void CountWin(int win, int x)
         {
             Person.CalculatePositions("Wygranych:", Area.minColumn + x, Area.minRow + 16);
-            Console.ForegroundColor =ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("Wygranych:");
             Person.CalculatePositions(win.ToString(), Area.minColumn + x, Area.minRow + 18);
             Console.WriteLine(win);

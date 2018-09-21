@@ -11,7 +11,7 @@ namespace Snake
         public static String NamePersonOne;
         public static String NamePersonTwo;
         static ConsoleColor Gray = ConsoleColor.Gray;
-        public static int publicznylicznik;
+        public static int publicCounter;
 
        // public static string NameOne { get; internal set; }
 
@@ -31,7 +31,7 @@ namespace Snake
 
             Console.ForegroundColor = Gray;
           
-            if (publicznylicznik == 0)
+            if (publicCounter == 0)
             {
                 Console.SetCursorPosition(Area.minColumn + 2, Area.minRow + 7);
                 Console.WriteLine("Podaj imię gracza " + kolejnosc1 + ": ");
@@ -50,7 +50,6 @@ namespace Snake
             Console.CursorVisible = true;
         }
                 
-
         public static void EnterName(ref string name)
         {
             do
@@ -58,7 +57,7 @@ namespace Snake
                 SetCursorAndWriteName(ref name);
                 CheckLength(name);
             } while (name.Length < 2 || name.Length > 25);
-            publicznylicznik++;
+            publicCounter++;
         }
 
         public static void WriteName( string name)
@@ -71,6 +70,7 @@ namespace Snake
                 int position = x - nazwa.Length / 2;
                 Console.SetCursorPosition(position, y);
         }
+
         public static void CalculatePositions(string name,int wiersz)
         {
             int name1 = name.Length / 2;
@@ -78,6 +78,7 @@ namespace Snake
             int position = middle - name1;
             Console.SetCursorPosition(position, wiersz);
         }
+
         public static void MovePlayer(int x)
         {
             Console.CursorVisible = false;

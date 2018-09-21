@@ -10,9 +10,8 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-
             Menu.Start();
-            Menu oblicz = new Menu();
+            Menu calculate = new Menu();
             //oblicz.PomocniczaFunkcjaWyznaczajcaX("Gry konsolowe");
             Console.ReadKey();
         } 

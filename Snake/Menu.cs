@@ -8,13 +8,14 @@ namespace Snake
 {
     public class Menu
     {
-        public void PomocniczaFunkcjaWyznaczajcaX(string nazwa)
-        {
-            int polNazwy = nazwa.Length / 2;
-            int polSzerokosci = Area.maxColumn / 2;
-            int x = polSzerokosci - polNazwy;
-            Console.WriteLine(x);
-        }
+       // public void AuxiliaryFunctionDefiningX(string name)
+        //{
+        //    int polNazwy = name.Length / 2;
+        //    int polSzerokosci = Area.maxColumn / 2;
+        //    int x = polSzerokosci - polNazwy;
+        //    Console.WriteLine(x);
+        //}
+
         public static void Start()
         {
             Console.SetBufferSize(Area.maxColumn, Area.maxRow+3 );

@@ -18,6 +18,7 @@ namespace Snake
             position.x = Generator.Next(Area.minColumn + 1, Area.maxColumn-2);
             position.y = Generator.Next(Area.minRow + 1, Area.maxRow-1);
         }
+
         public void ViewPrize()
         {
             ConsoleColor Color = Console.ForegroundColor;
@@ -29,6 +30,7 @@ namespace Snake
             Console.Write(this.walue);
             Console.ForegroundColor = Color;
         }
+
         public void ClearPrize()
         {
             Console.SetCursorPosition(position.x,position.y);

@@ -5,3 +5,10 @@ C:\Users\dominik\source\repos\Snake\Snake\bin\Debug\Snake.pdb
 C:\Users\dominik\source\repos\Snake\Snake\obj\Debug\Snake.exe
 C:\Users\dominik\source\repos\Snake\Snake\obj\Debug\Snake.pdb
 C:\Users\dominik\source\repos\Snake\Snake\obj\Debug\Snake.csprojAssemblyReference.cache
+C:\Users\dominik\source\repos\Snake\Snake-And-Tic-Tac-Toc\Snake\obj\Debug\Snake.csprojAssemblyReference.cache
+C:\Users\dominik\source\repos\Snake\Snake-And-Tic-Tac-Toc\Snake\obj\Debug\Snake.csproj.CoreCompileInputs.cache
+C:\Users\dominik\source\repos\Snake\Snake-And-Tic-Tac-Toc\Snake\obj\Debug\Snake.exe
+C:\Users\dominik\source\repos\Snake\Snake-And-Tic-Tac-Toc\Snake\obj\Debug\Snake.pdb
+C:\Users\dominik\source\repos\Snake\Snake-And-Tic-Tac-Toc\Snake\bin\Debug\Snake.exe.config
+C:\Users\dominik\source\repos\Snake\Snake-And-Tic-Tac-Toc\Snake\bin\Debug\Snake.exe
+C:\Users\dominik\source\repos\Snake\Snake-And-Tic-Tac-Toc\Snake\bin\Debug\Snake.pdb

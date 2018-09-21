@@ -11,7 +11,7 @@ namespace Snake
     {
         static bool gameOn = true;
         static DateTime start = DateTime.Now;
-        static Prize nagroda = new Prize();
+        static Prize prize = new Prize();
         static int score = 0;
 
         public static void NewGame()
@@ -22,9 +22,10 @@ namespace Snake
             score = 0;
             Area.DrawArea();
             Body.CreateBody();
-            nagroda.ViewPrize();
+            prize.ViewPrize();
             Graj();
         }
+
         public static void Graj()
         {
             while (gameOn)
@@ -32,26 +33,28 @@ namespace Snake
                 LoadKey();
                 if (!gameOn) break;
                 NewPrize();
-                CzyWazSieZjadl();
+                SnakeAte();
                 if (!gameOn) break;
-                WazIdzie();
+                SnakeGoing();
                 if (!gameOn) break;
-                ZjadlNagrode();
+                SnakeAtePrize();
                 Thread.Sleep(100);
             }
         }
-        private static void CzyWazSieZjadl()
+
+        private static void SnakeAte()
         {
             if (Body.Suicide())
             {
                 GameOver();
             }
         }
-        private static void ZjadlNagrode()
+
+        private static void SnakeAtePrize()
         {
-            if (Body.CzyJestTu(nagroda.position))
+            if (Body.IsheHere(prize.position))
             {
-                if (nagroda.walue == 0)
+                if (prize.walue == 0)
                 {
                     Body.ClearSnake();
                     Body.CreateBody();
@@ -59,31 +62,34 @@ namespace Snake
                 }
                 else
                 {
-                    score += nagroda.walue;
+                    score += prize.walue;
                     Body.Snakestretching();
                 }
                 Area.WritePoints(score);
-                nagroda = new Prize();
-                nagroda.ViewPrize();
+                prize = new Prize();
+                prize.ViewPrize();
             }
         }
+
         public static void NewPrize()
         {
             if (start <= DateTime.Now.Subtract(TimeSpan.FromSeconds(10)))
             {
-                nagroda.ClearPrize();
+                prize.ClearPrize();
                 start = DateTime.Now;
-                nagroda = new Prize();
-                nagroda.ViewPrize();
+                prize = new Prize();
+                prize.ViewPrize();
             }
         }
-        private static void WazIdzie()
+
+        private static void SnakeGoing()
         {
             if (!Body.SlideSnake())
             {
                 GameOver();
             }
         }
+
         private static void GameOver()
         {
             gameOn = false;
@@ -95,6 +101,7 @@ namespace Snake
             Console.ReadKey();
             Body.ClearSnake();
         }
+
         private static void LoadKey()
         {
             if (Console.KeyAvailable)

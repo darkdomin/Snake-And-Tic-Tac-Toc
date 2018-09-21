@@ -12,7 +12,7 @@ namespace Snake
         public static readonly int minColumn = 0;
         public static readonly int maxRow = 35;
         public static readonly int maxColumn = 100;
-        public static char[,] tablica = new char[,]
+        public static char[,] table = new char[,]
         {
             {'1','2','3'},
             {'4','5','6'},
@@ -45,7 +45,6 @@ namespace Snake
             Console.SetCursorPosition(minColumn + 1, maxRow);
             Console.Write("Wynik: {0}", points);
             Console.BackgroundColor = ConsoleColor.Black;
-            
         }
 
         public static void DrawBoard()
@@ -66,25 +65,25 @@ namespace Snake
                 Console.Write("  ");
             }
             Console.BackgroundColor = ConsoleColor.Black;
-            int kolumna = Area.minColumn + 36;
+            int column = Area.minColumn + 36;
             int row = Area.minRow + 12;
             string txt = "             ";
-            for (int i = 0; i < tablica.GetLength(0); i++)
+            for (int i = 0; i < table.GetLength(0); i++)
             {
-                Console.SetCursorPosition(kolumna, row);
-                for (int j = 0; j < tablica.GetLength(1); j++)
+                Console.SetCursorPosition(column, row);
+                for (int j = 0; j < table.GetLength(1); j++)
                 {
-                    if (tablica[i, j] == 'X')
+                    if (table[i, j] == 'X')
                     {
                         Colors.RedLetters();
                     }
-                    else if (tablica[i, j] == 'O')
+                    else if (table[i, j] == 'O')
                     {
                         Colors.GreenLetters();
                     }
                     else { Colors.GrayLetters(); }
-                    if (j == 2 || j == 5 || j == 8) Console.Write(tablica[i, j]);
-                    else Console.Write(tablica[i, j] + txt);
+                    if (j == 2 || j == 5 || j == 8) Console.Write(table[i, j]);
+                    else Console.Write(table[i, j] + txt);
                 }
                 row += 6;
             }
